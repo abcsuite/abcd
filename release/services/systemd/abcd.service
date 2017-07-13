@@ -1,0 +1,13 @@
+[Unit]
+Description=Aero Full Node
+
+[Service]
+Type=simple
+User=abcd
+Group=abcd
+WorkingDirectory=/var/abcd
+ExecStart=/opt/abcd/bin/abcd --appdata=/var/abcd
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
