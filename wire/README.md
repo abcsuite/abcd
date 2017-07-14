@@ -44,13 +44,13 @@ to a remote node running a abcd peer.  Example syntax is:
 	// Use the most recent protocol version supported by the package and the
 	// main abcd network.
 	pver := wire.ProtocolVersion
-	dcrnet := wire.MainNet
+	abcnet := wire.MainNet
 
 	// Reads and validates the next abcd message from conn using the
-	// protocol version pver and the abcd network dcrnet.  The returns
+	// protocol version pver and the abcd network abcnet.  The returns
 	// are a wire.Message, a []byte which contains the unmarshalled
 	// raw payload, and a possible error.
-	msg, rawPayload, err := wire.ReadMessage(conn, pver, dcrnet)
+	msg, rawPayload, err := wire.ReadMessage(conn, pver, abcnet)
 	if err != nil {
 		// Log and handle the error
 	}
@@ -69,15 +69,15 @@ from a remote peer is:
 	// Use the most recent protocol version supported by the package and the
 	// main abcd network.
 	pver := wire.ProtocolVersion
-	dcrnet := wire.MainNet
+	abcnet := wire.MainNet
 
 	// Create a new getaddr abcd message.
 	msg := wire.NewMsgGetAddr()
 
 	// Writes a abcd message msg to conn using the protocol version
-	// pver, and the abcd network dcrnet.  The return is a possible
+	// pver, and the abcd network abcnet.  The return is a possible
 	// error.
-	err := wire.WriteMessage(conn, msg, pver, dcrnet)
+	err := wire.WriteMessage(conn, msg, pver, abcnet)
 	if err != nil {
 		// Log and handle the error
 	}

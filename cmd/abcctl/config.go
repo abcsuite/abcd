@@ -29,12 +29,12 @@ const (
 
 var (
 	abcdHomeDir           = abcutil.AppDataDir("abcd", false)
-	dcrctlHomeDir         = abcutil.AppDataDir("abcctl", false)
-	dcrwalletHomeDir      = abcutil.AppDataDir("Abcwallet", false)
-	defaultConfigFile     = filepath.Join(dcrctlHomeDir, "abcctl.conf")
+	abcctlHomeDir         = abcutil.AppDataDir("abcctl", false)
+	abcwalletHomeDir      = abcutil.AppDataDir("Abcwallet", false)
+	defaultConfigFile     = filepath.Join(abcctlHomeDir, "abcctl.conf")
 	defaultRPCServer      = "localhost"
 	defaultRPCCertFile    = filepath.Join(abcdHomeDir, "rpc.cert")
-	defaultWalletCertFile = filepath.Join(dcrwalletHomeDir, "rpc.cert")
+	defaultWalletCertFile = filepath.Join(abcwalletHomeDir, "rpc.cert")
 )
 
 // listCommands categorizes and lists all of the usable commands along with
@@ -149,7 +149,7 @@ func normalizeAddress(addr string, useTestNet, useSimNet, useWallet bool) string
 func cleanAndExpandPath(path string) string {
 	// Expand initial ~ to OS specific home directory.
 	if strings.HasPrefix(path, "~") {
-		homeDir := filepath.Dir(dcrctlHomeDir)
+		homeDir := filepath.Dir(abcctlHomeDir)
 		path = strings.Replace(path, "~", homeDir, 1)
 	}
 

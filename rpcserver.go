@@ -5774,12 +5774,12 @@ func handleVerifyMessage(s *rpcServer, cmd interface{}, closeChan <-chan struct{
 	}
 
 	// Reconstruct the pubkey hash.
-	dcrPK := pk
+	abcPK := pk
 	var serializedPK []byte
 	if wasCompressed {
-		serializedPK = dcrPK.SerializeCompressed()
+		serializedPK = abcPK.SerializeCompressed()
 	} else {
-		serializedPK = dcrPK.SerializeUncompressed()
+		serializedPK = abcPK.SerializeUncompressed()
 	}
 	address, err := abcutil.NewAddressSecpPubKey(serializedPK,
 		activeNetParams.Params)

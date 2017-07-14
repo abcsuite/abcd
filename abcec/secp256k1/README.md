@@ -50,5 +50,5 @@ $ go get -u github.com/abcsuite/abcd/abcec
 ## License
 
 Package abcec is licensed under the [copyfree](http://copyfree.org) ISC License
-except for abcec.go and dcrec_test.go which is under the same license as Go.
+except for abcec.go and abcec_test.go which is under the same license as Go.
 

@@ -56,7 +56,7 @@ type TransactionInput struct {
 // CreateRawTransactionCmd defines the createrawtransaction JSON-RPC command.
 type CreateRawTransactionCmd struct {
 	Inputs   []TransactionInput
-	Amounts  map[string]float64 `jsonrpcusage:"{\"address\":amount,...}"` // In DCR
+	Amounts  map[string]float64 `jsonrpcusage:"{\"address\":amount,...}"` // In ABC
 	LockTime *int64
 }
 

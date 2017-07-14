@@ -5,7 +5,7 @@
         1. [Windows](#WindowsInstallation)
         2. [Linux/BSD/MacOSX/POSIX](#PosixInstallation)
     2. [Configuration](#Configuration)
-    3. [Controlling and Querying abcd via abcctl](#DcrctlConfig)
+    3. [Controlling and Querying abcd via abcctl](#AbcctlConfig)
     4. [Mining](#Mining)
 3. [Help](#Help)
     1. [Startup](#Startup)
@@ -65,7 +65,7 @@ details on how to install on the supported operating systems.
 abcd has a number of [configuration](http://godoc.org/github.com/abcsuite/abcd)
 options, which can be viewed by running: `$ abcd --help`.
 
-<a name="DcrctlConfig" />
+<a name="AbcctlConfig" />
 **2.3 Controlling and Querying abcd via abcctl**<br />
 
 abcctl is a command line utility that can be used to both control and query abcd
