@@ -29,7 +29,7 @@ func ExamplePayToAddrScript() {
 	// which is useful to ensure the accuracy of the address and determine
 	// the address type.  It is also required for the upcoming call to
 	// PayToAddrScript.
-	addressStr := "DsSej1qR3Fyc8kV176DCh9n9cY9nqf9Quxk"
+	addressStr := "Ab7nRHURmReRhvU48WmewnUQVqYvfQfM5mC"
 	address, err := abcutil.DecodeAddress(addressStr, &chaincfg.MainNetParams)
 	if err != nil {
 		fmt.Println(err)
@@ -80,7 +80,7 @@ func ExampleExtractPkScriptAddrs() {
 
 	// Output:
 	// Script Class: pubkeyhash
-	// Addresses: [DsSej1qR3Fyc8kV176DCh9n9cY9nqf9Quxk]
+	// Addresses: [Ab7nRHURmReRhvU48WmewnUQVqYvfQfM5mC]
 	// Required Signatures: 1
 }
 

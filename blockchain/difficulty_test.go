@@ -353,7 +353,7 @@ func TestCalcNextRequiredStakeDiffV2(t *testing.T) {
 				{144, 20, 10947547379},   // 4031
 				{144, 20, 20338554623},   // 4175
 			},
-			expectedDiff: 22097687698,
+			expectedDiff: 38776057578,
 		},
 		{
 			// Next retarget is at 4176.  Post stake validation
@@ -385,10 +385,10 @@ func TestCalcNextRequiredStakeDiffV2(t *testing.T) {
 				{144, 13, 6116808441},    // 3887
 				{144, 0, 10645659768},    // 4031
 				{144, 0, 18046712136},    // 4175
-				{144, 0, 22097687698},    // 4319
-				{144, 0, 22152524112},    // 4463
+				{144, 0, 30264574684},    // 4319
+				{144, 0, 49999799442},    // 4463
 			},
-			expectedDiff: 22207360526,
+			expectedDiff: 81751984465,
 		},
 	}
 
@@ -396,10 +396,6 @@ nextTest:
 	for _, test := range tests {
 		bc := newFakeChain(params)
 		bc.bestNode = genesisBlockNode(params)
-		if test.expectedDiff == 22097687698{
-			t.Log(bc.bestNode.hash)
-		}
-
 		// immatureTickets tracks which height the purchased tickets
 		// will mature and thus be eligible for admission to the live
 		// ticket pool.
@@ -455,9 +451,6 @@ nextTest:
 				// the new best node.
 				bc.bestNode = node
 			}
-		}
-		if test.expectedDiff == 22097687698{
-			t.Log(bc.bestNode.hash)
 		}
 		// Ensure the calculated difficulty matches the expected value.
 		gotDiff, err := bc.calcNextRequiredStakeDifficultyV2(bc.bestNode)
@@ -656,7 +649,7 @@ func TestEstimateNextStakeDiffV2(t *testing.T) {
 				{10, 20, 20338554623},    // 4041
 			},
 			useMaxTickets: true,
-			expectedDiff:  22097687698,
+			expectedDiff:  38771084217,
 		},
 		{
 			// Next retarget is at 4176.  Post stake validation
@@ -691,12 +684,12 @@ func TestEstimateNextStakeDiffV2(t *testing.T) {
 				{144, 13, 6116808441},    // 3887
 				{144, 0, 10645659768},    // 4031
 				{144, 0, 18046712136},    // 4175
-				{144, 0, 22097687698},    // 4319
-				{117, 0, 22152524112},    // 4436
+				{144, 0, 30264574684},    // 4319
+				{117, 0, 49999799442},    // 4436
 			},
 			useMaxTickets: false,
 			newTickets:    0,
-			expectedDiff:  22207360526,
+			expectedDiff:  81751984465,
 		},
 	}
 

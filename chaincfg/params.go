@@ -610,8 +610,8 @@ var MainNetParams = Params{
 	StakeMajorityDivisor:    4,
 
 	// Aero organization related parameters
-	// Organization address is Dcur2mcGjmENx4DhNqDctW5wJCVyT3Qeqkx
-	OrganizationPkScript:        hexDecode("a914f5916158e3e2c4551c1796708db8367207ed13bb87"),
+	// Organization address is AcMpRUGQdz1uVnQMzWX3WSsZ7BpvHbPf1fo
+	OrganizationPkScript:        hexDecode("28aa102e66759972243d101968caf7e547ca7ca4"),
 	OrganizationPkScriptVersion: 0,
 	BlockOneLedger:              BlockOneLedgerMainNet,
 }
