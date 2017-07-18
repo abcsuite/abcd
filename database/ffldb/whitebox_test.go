@@ -19,8 +19,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/btcsuite/goleveldb/leveldb"
-	ldberrors "github.com/btcsuite/goleveldb/leveldb/errors"
+	"github.com/abcsuite/goleveldb/leveldb"
+	ldberrors "github.com/abcsuite/goleveldb/leveldb/errors"
 	"github.com/abcsuite/abcd/database"
 	"github.com/abcsuite/abcd/wire"
 	"github.com/abcsuite/abcutil"

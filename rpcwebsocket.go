@@ -20,7 +20,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/btcsuite/websocket"
+	"github.com/abcsuite/websocket"
 	"golang.org/x/crypto/ripemd160"
 
 	"github.com/abcsuite/abcd/blockchain"

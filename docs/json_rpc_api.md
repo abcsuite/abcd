@@ -1302,7 +1302,7 @@ differences between btcd and bitcoind as far as how RPCs are serviced:
   further details on why they were separated.  This means that if you are
   talking directly to btcd, only chain-related RPCs are available.  However both
   chain-related and wallet-related RPCs are available via
-  [btcwallet](https://github.com/btcsuite/btcwallet).
+  [btcwallet](https://github.com/abcsuite/abcwallet).
 * btcd is secure by default which means that the RPC connection is TLS-enabled
   by default
 * btcd provides access to the API through both
@@ -1310,7 +1310,7 @@ differences between btcd and bitcoind as far as how RPCs are serviced:
   [Websockets](http://en.wikipedia.org/wiki/WebSocket)
 
 Websockets are the preferred transport for btcd RPC and are used by applications
-such as [btcwallet](https://github.com/btcsuite/btcwallet) for inter-process
+such as [btcwallet](https://github.com/abcsuite/abcwallet) for inter-process
 communication with btcd.  The websocket connection endpoint for btcd is
 `wss://your_ip_or_domain:9526/ws`.
 
@@ -2238,7 +2238,7 @@ various languages.
 **9.1 Go**
 
 This section provides examples of using the RPC interface using Go and the
-[btcrpcclient](https://github.com/btcsuite/btcrpcclient) package.
+[btcrpcclient](https://github.com/abcsuite/abcrpcclient) package.
 
 * [Using getblockcount to Retrieve the Current Block Height](#ExampleGetBlockCount)
 * [Using getblock to Retrieve the Genesis Block](#ExampleGetBlock)
@@ -2249,7 +2249,7 @@ This section provides examples of using the RPC interface using Go and the
 **9.1.1 Using getblockcount to Retrieve the Current Block Height**<br />
 
 The following is an example Go application which uses the
-[btcrpcclient](https://github.com/btcsuite/btcrpcclient) package to connect with
+[btcrpcclient](https://github.com/abcsuite/abcrpcclient) package to connect with
 a btcd instance via Websockets, issues [getblockcount](#getblockcount) to
 retrieve the current block height, and displays it.
 
@@ -2257,8 +2257,8 @@ retrieve the current block height, and displays it.
 package main
 
 import (
-	"github.com/btcsuite/btcrpcclient"
-	"github.com/btcsuite/btcutil"
+	"github.com/abcsuite/abcrpcclient"
+	"github.com/abcsuite/abcutil"
 	"io/ioutil"
 	"log"
 	"path/filepath"
@@ -2309,7 +2309,7 @@ Block count: 276978
 **9.1.2 Using getblock to Retrieve the Genesis Block**<br />
 
 The following is an example Go application which uses the
-[btcrpcclient](https://github.com/btcsuite/btcrpcclient) package to connect with
+[btcrpcclient](https://github.com/abcsuite/abcrpcclient) package to connect with
 a btcd instance via Websockets, issues [getblock](#getblock) to retrieve
 information about the Genesis block, and display a few details about it.
 
@@ -2317,10 +2317,10 @@ information about the Genesis block, and display a few details about it.
 package main
 
 import (
-	"github.com/btcsuite/btcrpcclient"
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
+	"github.com/abcsuite/abcrpcclient"
+	"github.com/abcsuite/abcutil"
+	"github.com/abcsuite/abcd/chaincfg/chainhash"
+	"github.com/abcsuite/abcd/wire"
 	"io/ioutil"
 	"log"
 	"path/filepath"

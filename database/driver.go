@@ -8,7 +8,7 @@ package database
 import (
 	"fmt"
 
-	"github.com/btcsuite/btclog"
+	"github.com/abcsuite/abclog"
 )
 
 // Driver defines a structure for backend drivers to use when they register
@@ -29,7 +29,7 @@ type Driver struct {
 	Open func(args ...interface{}) (DB, error)
 
 	// UseLogger uses a specified Logger to output package logging info.
-	UseLogger func(logger btclog.Logger)
+	UseLogger func(logger abclog.Logger)
 }
 
 // driverList holds all of the registered database backends.

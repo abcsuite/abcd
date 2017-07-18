@@ -12,7 +12,7 @@ import (
 
 	"github.com/abcsuite/abcd/abcjson"
 
-	"github.com/btcsuite/go-socks/socks"
+	"github.com/abcsuite/go-socks/socks"
 )
 
 // newHTTPClient returns a new HTTP client that is configured according to the

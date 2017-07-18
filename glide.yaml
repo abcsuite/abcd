@@ -4,12 +4,12 @@ import:
   version: 278e1ec8e8a6e017cd07577924d6766039146ced
   subpackages:
   - edwards25519
-- package: github.com/btcsuite/btclog
-- package: github.com/btcsuite/go-flags
-- package: github.com/btcsuite/go-socks
+- package: github.com/abcsuite/abclog
+- package: github.com/abcsuite/go-flags
+- package: github.com/abcsuite/go-socks
   subpackages:
   - socks
-- package: github.com/btcsuite/goleveldb
+- package: github.com/abcsuite/goleveldb
   subpackages:
   - leveldb
   - leveldb/comparer
@@ -18,8 +18,8 @@ import:
   - leveldb/iterator
   - leveldb/opt
   - leveldb/util
-- package: github.com/btcsuite/websocket
-- package: github.com/btcsuite/winsvc
+- package: github.com/abcsuite/websocket
+- package: github.com/abcsuite/winsvc
   subpackages:
   - eventlog
   - mgr

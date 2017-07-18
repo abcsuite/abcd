@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/btcsuite/btclog"
+	"github.com/abcsuite/abclog"
 	"github.com/abcsuite/abcd/blockchain"
 	"github.com/abcsuite/abcd/blockchain/indexers"
 	"github.com/abcsuite/abcd/database"
@@ -24,7 +24,7 @@ const (
 
 var (
 	cfg *config
-	log btclog.Logger
+	log abclog.Logger
 )
 
 // loadBlockDB opens the block database and returns a handle to it.
@@ -70,7 +70,7 @@ func realMain() error {
 	cfg = tcfg
 
 	// Setup logging.
-	backendLogger := btclog.NewBackend(os.Stdout)
+	backendLogger := abclog.NewBackend(os.Stdout)
 	defer os.Stdout.Sync()
 	log = backendLogger.Logger("MAIN")
 	database.UseLogger(backendLogger.Logger("BCDB"))

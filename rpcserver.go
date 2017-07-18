@@ -32,7 +32,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/btcsuite/websocket"
+	"github.com/abcsuite/websocket"
 
 	"github.com/abcsuite/bitset"
 	"github.com/abcsuite/abcd/blockchain"

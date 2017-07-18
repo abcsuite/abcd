@@ -21,8 +21,8 @@ import (
 	"strings"
 	"time"
 
-	flags "github.com/btcsuite/go-flags"
-	"github.com/btcsuite/go-socks/socks"
+	flags "github.com/abcsuite/go-flags"
+	"github.com/abcsuite/go-socks/socks"
 	"github.com/abcsuite/abcd/connmgr"
 	"github.com/abcsuite/abcd/database"
 	_ "github.com/abcsuite/abcd/database/ffldb"

@@ -8,12 +8,12 @@ package ffldb
 import (
 	"fmt"
 
-	"github.com/btcsuite/btclog"
+	"github.com/abcsuite/abclog"
 	"github.com/abcsuite/abcd/database"
 	"github.com/abcsuite/abcd/wire"
 )
 
-var log = btclog.Disabled
+var log = abclog.Disabled
 
 const (
 	dbType = "ffldb"
@@ -66,7 +66,7 @@ func createDBDriver(args ...interface{}) (database.DB, error) {
 
 // useLogger is the callback provided during driver registration that sets the
 // current logger to the provided one.
-func useLogger(logger btclog.Logger) {
+func useLogger(logger abclog.Logger) {
 	log = logger
 }
 

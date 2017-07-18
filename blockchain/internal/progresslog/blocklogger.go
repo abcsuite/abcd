@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/btcsuite/btclog"
+	"github.com/abcsuite/abclog"
 
 	"github.com/abcsuite/abcd/wire"
 	"github.com/abcsuite/abcutil"
@@ -23,7 +23,7 @@ type BlockProgressLogger struct {
 	receivedLogTx     int64
 	lastBlockLogTime  time.Time
 
-	subsystemLogger btclog.Logger
+	subsystemLogger abclog.Logger
 	progressAction  string
 	sync.Mutex
 }
@@ -32,7 +32,7 @@ type BlockProgressLogger struct {
 // The progress message is templated as follows:
 //  {progressAction} {numProcessed} {blocks|block} in the last {timePeriod}
 //  ({numTxs}, height {lastBlockHeight}, {lastBlockTimeStamp})
-func NewBlockProgressLogger(progressMessage string, logger btclog.Logger) *BlockProgressLogger {
+func NewBlockProgressLogger(progressMessage string, logger abclog.Logger) *BlockProgressLogger {
 	return &BlockProgressLogger{
 		lastBlockLogTime: time.Now(),
 		progressAction:   progressMessage,

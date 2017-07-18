@@ -10,7 +10,7 @@ import (
 	"os"
 	"path/filepath"
 
-	flags "github.com/btcsuite/go-flags"
+	flags "github.com/abcsuite/go-flags"
 	"github.com/abcsuite/abcd/chaincfg"
 	"github.com/abcsuite/abcd/database"
 	_ "github.com/abcsuite/abcd/database/ffldb"

@@ -14,7 +14,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/btcsuite/go-socks/socks"
+	"github.com/abcsuite/go-socks/socks"
 	"github.com/abcsuite/abcd/chaincfg"
 	"github.com/abcsuite/abcd/chaincfg/chainhash"
 	"github.com/abcsuite/abcd/peer"

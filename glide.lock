@@ -5,15 +5,15 @@ imports:
   version: 278e1ec8e8a6e017cd07577924d6766039146ced
   subpackages:
   - edwards25519
-- name: github.com/btcsuite/btclog
+- name: github.com/abcsuite/abclog
   version: 266a29b6e5ad061d4c055cec1c0049e4aae47092
-- name: github.com/btcsuite/go-flags
+- name: github.com/abcsuite/go-flags
   version: 6c288d648c1cc1befcb90cb5511dcacf64ae8e61
-- name: github.com/btcsuite/go-socks
+- name: github.com/abcsuite/go-socks
   version: 4720035b7bfd2a9bb130b1c184f8bbe41b6f0d0f
   subpackages:
   - socks
-- name: github.com/btcsuite/goleveldb
+- name: github.com/abcsuite/goleveldb
   version: 7834afc9e8cd15233b6c3d97e12674a31ca24602
   subpackages:
   - leveldb
@@ -30,9 +30,9 @@ imports:
   - leveldb/util
 - name: github.com/btcsuite/snappy-go
   version: 0bdef8d067237991ddaa1bb6072a740bc40601ba
-- name: github.com/btcsuite/websocket
+- name: github.com/abcsuite/websocket
   version: 31079b6807923eb23992c421b114992b95131b55
-- name: github.com/btcsuite/winsvc
+- name: github.com/abcsuite/winsvc
   version: f8fb11f83f7e860e3769a08e6811d1b399a43722
   subpackages:
   - eventlog

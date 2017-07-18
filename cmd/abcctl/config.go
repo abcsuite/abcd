@@ -17,7 +17,7 @@ import (
 	"github.com/abcsuite/abcd/abcjson"
 	"github.com/abcsuite/abcutil"
 
-	flags "github.com/btcsuite/go-flags"
+	flags "github.com/abcsuite/go-flags"
 )
 
 const (

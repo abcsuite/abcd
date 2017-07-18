@@ -13,7 +13,7 @@ import (
 
 	"github.com/abcsuite/abcutil"
 
-	flags "github.com/btcsuite/go-flags"
+	flags "github.com/abcsuite/go-flags"
 )
 
 var (

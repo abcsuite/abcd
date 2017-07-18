@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	flags "github.com/btcsuite/go-flags"
+	flags "github.com/abcsuite/go-flags"
 	"github.com/abcsuite/abcutil"
 )
 
