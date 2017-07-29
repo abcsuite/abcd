@@ -813,7 +813,7 @@ func (b *BlockChain) sumPurchasedTickets(startNode *blockNode, numToSum int64) (
 }
 
 // calcNextStakeDiffV2 calculates the next stake difficulty for the given set
-// of parameters using the algorithm defined in DCP0001.
+// of parameters using the algorithm.
 //
 // This function contains the heart of the algorithm and thus is separated for
 // use in both the actual stake difficulty calculation as well as estimation.
@@ -834,7 +834,7 @@ func calcNextStakeDiffV2(params *chaincfg.Params, nextHeight, curDiff, prevPoolS
 	// change in the pool size (Fc) and a restorative force to push the pool
 	// size  towards the target value (Fr).
 	//
-	// Per DCP0001, the generalized equation is:
+	// the generalized equation is:
 	//
 	//   nextDiff = min(max(curDiff * Fc * Fr, Slb), Sub)
 	//
@@ -889,7 +889,6 @@ func calcNextStakeDiffV2(params *chaincfg.Params, nextHeight, curDiff, prevPoolS
 
 // calcNextRequiredStakeDifficultyV2 calculates the required stake difficulty
 // for the block after the passed previous block node based on the algorithm
-// defined in DCP0001.
 //
 // This function MUST be called with the chain state lock held (for writes).
 func (b *BlockChain) calcNextRequiredStakeDifficultyV2(curNode *blockNode) (int64, error) {
@@ -956,7 +955,7 @@ func (b *BlockChain) calcNextRequiredStakeDifficultyV2(curNode *blockNode) (int6
 }
 
 // sdiffAlgoDeploymentVersion returns the deployment vesion for the stake
-// difficulty algorithm change as defined in DCP0001 for the provided network.
+// difficulty algorithm change for the provided network.
 //
 // This function is safe for concurrent access.
 func sdiffAlgoDeploymentVersion(network wire.CurrencyNet) uint32 {
@@ -976,24 +975,9 @@ func sdiffAlgoDeploymentVersion(network wire.CurrencyNet) uint32 {
 //
 // This function MUST be called with the chain state lock held (for writes).
 func (b *BlockChain) calcNextRequiredStakeDifficulty(curNode *blockNode) (int64, error) {
-	// Use the new stake difficulty algorithm if the stake vote for the new
-	// algorithm agenda is active.
-	//
-	// NOTE: The choice field of the return threshold state is not examined
-	// here because there is only one possible choice that can be active
-	// for the agenda, which is yes, so there is no need to check it.
-	deploymentVersion := sdiffAlgoDeploymentVersion(b.chainParams.Net)
-	state, err := b.deploymentState(curNode, deploymentVersion,
-		chaincfg.VoteIDSDiffAlgorithm)
-	if err != nil {
-		return 0, err
-	}
-	if state.State == ThresholdActive {
-		return b.calcNextRequiredStakeDifficultyV2(curNode)
-	}
-
+	return b.calcNextRequiredStakeDifficultyV2(curNode)
 	// Use the old stake difficulty algorithm in any other case.
-	return b.calcNextRequiredStakeDifficultyV1(curNode)
+	//return b.calcNextRequiredStakeDifficultyV1(curNode)
 }
 
 // CalcNextRequiredStakeDifficulty calculates the required stake difficulty for
@@ -1327,7 +1311,7 @@ func (b *BlockChain) estimateNextStakeDifficultyV1(curNode *blockNode, ticketsIn
 }
 
 // estimateNextStakeDifficultyV2 estimates the next stake difficulty using the
-// algorithm defined in DCP0001 by pretending the provided number of tickets
+// algorithm by pretending the provided number of tickets
 // will be purchased in the remainder of the interval unless the flag to use max
 // tickets is set in which case it will use the max possible number of tickets
 // that can be purchased in the remainder of the interval.
@@ -1476,26 +1460,9 @@ func (b *BlockChain) estimateNextStakeDifficultyV2(curNode *blockNode, newTicket
 //
 // This function MUST be called with the chain state lock held (for writes).
 func (b *BlockChain) estimateNextStakeDifficulty(curNode *blockNode, newTickets int64, useMaxTickets bool) (int64, error) {
-	// Use the new stake difficulty algorithm if the stake vote for the new
-	// algorithm agenda is active.
-	//
-	// NOTE: The choice field of the return threshold state is not examined
-	// here because there is only one possible choice that can be active
-	// for the agenda, which is yes, so there is no need to check it.
-	deploymentVersion := sdiffAlgoDeploymentVersion(b.chainParams.Net)
-	state, err := b.deploymentState(curNode, deploymentVersion,
-		chaincfg.VoteIDSDiffAlgorithm)
-	if err != nil {
-		return 0, err
-	}
-	if state.State == ThresholdActive {
-		return b.estimateNextStakeDifficultyV2(curNode, newTickets,
-			useMaxTickets)
-	}
-
+	return b.estimateNextStakeDifficultyV2(curNode, newTickets, useMaxTickets)
 	// Use the old stake difficulty algorithm in any other case.
-	return b.estimateNextStakeDifficultyV1(curNode, newTickets,
-		useMaxTickets)
+	//return b.estimateNextStakeDifficultyV1(curNode, newTickets, useMaxTickets)
 }
 
 // EstimateNextStakeDifficulty estimates the next stake difficulty by pretending

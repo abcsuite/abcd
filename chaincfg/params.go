@@ -161,10 +161,6 @@ const (
 	// increase agenda used for the hard fork demo.
 	VoteIDMaxBlockSize = "maxblocksize"
 
-	// VoteIDSDiffAlgorithm is the vote ID for the new stake difficulty
-	// algorithm (aka ticket price) agenda defined by DCP0001.
-	VoteIDSDiffAlgorithm = "sdiffalgorithm"
-
 	// VoteIDLNSupport is the vote ID for determining if the developers
 	// should work on integrating Lightning Network support.
 	VoteIDLNSupport = "lnsupport"
@@ -460,7 +456,7 @@ var MainNetParams = Params{
 	DNSSeeds: []string{
 		//"mainnet-seed.abcd.mindcry.org",
 		//"mainnet-seed.abcd.netpurgatory.com",
-		//"mainnet.decredseed.org",
+		//"mainnet.aeroseed.org",
 		//"mainnet-seed.abcd.org",
 	},
 
@@ -503,33 +499,6 @@ var MainNetParams = Params{
 	RuleChangeActivationInterval:   2016 * 4, // 4 weeks
 	Deployments: map[uint32][]ConsensusDeployment{
 		4: {{
-			Vote: Vote{
-				Id:          VoteIDSDiffAlgorithm,
-				Description: "Change stake difficulty algorithm as defined in DCP0001",
-				Mask:        0x0006, // Bits 1 and 2
-				Choices: []Choice{{
-					Id:          "abstain",
-					Description: "abstain voting for change",
-					Bits:        0x0000,
-					IsAbstain:   true,
-					IsNo:        false,
-				}, {
-					Id:          "no",
-					Description: "keep the existing algorithm",
-					Bits:        0x0002, // Bit 1
-					IsAbstain:   false,
-					IsNo:        true,
-				}, {
-					Id:          "yes",
-					Description: "change to the new algorithm",
-					Bits:        0x0004, // Bit 2
-					IsAbstain:   false,
-					IsNo:        false,
-				}},
-			},
-			StartTime:  1530374400, // 2018-07-01
-			ExpireTime: 1546272000, // 2019-01-01
-		}, {
 			Vote: Vote{
 				Id:          VoteIDLNSupport,
 				Description: "Request developers begin work on Lightning Network (LN) integration",
@@ -626,7 +595,7 @@ var TestNet2Params = Params{
 	DNSSeeds: []string{
 		//"testnet-seed.abcd.mindcry.org",
 		//"testnet-seed.abcd.netpurgatory.org",
-		//"testnet.decredseed.org",
+		//"testnet.aeroseed.org",
 		//"testnet-seed.abcd.org",
 	},
 
@@ -674,34 +643,6 @@ var TestNet2Params = Params{
 	RuleChangeActivationDivisor:    4,
 	RuleChangeActivationInterval:   5040, // 1 week
 	Deployments: map[uint32][]ConsensusDeployment{
-		5: {{
-			Vote: Vote{
-				Id:          VoteIDSDiffAlgorithm,
-				Description: "Change stake difficulty algorithm as defined in DCP0001",
-				Mask:        0x0006, // Bits 1 and 2
-				Choices: []Choice{{
-					Id:          "abstain",
-					Description: "abstain voting for change",
-					Bits:        0x0000,
-					IsAbstain:   true,
-					IsNo:        false,
-				}, {
-					Id:          "no",
-					Description: "keep the existing algorithm",
-					Bits:        0x0002, // Bit 1
-					IsAbstain:   false,
-					IsNo:        true,
-				}, {
-					Id:          "yes",
-					Description: "change to the new algorithm",
-					Bits:        0x0004, // Bit 2
-					IsAbstain:   false,
-					IsNo:        false,
-				}},
-			},
-			StartTime:  1493164800, // Apr 26th, 2017
-			ExpireTime: 1524700800, // Apr 26th, 2018
-		}},
 	},
 
 	// Enforce current block version once majority of the network has
@@ -832,34 +773,6 @@ var SimNetParams = Params{
 				}, {
 					Id:          "yes",
 					Description: "accept changing max allowed block size",
-					Bits:        0x0004, // Bit 2
-					IsAbstain:   false,
-					IsNo:        false,
-				}},
-			},
-			StartTime:  0,             // Always available for vote
-			ExpireTime: math.MaxInt64, // Never expires
-		}},
-		5: {{
-			Vote: Vote{
-				Id:          VoteIDSDiffAlgorithm,
-				Description: "Change stake difficulty algorithm as defined in DCP0001",
-				Mask:        0x0006, // Bits 1 and 2
-				Choices: []Choice{{
-					Id:          "abstain",
-					Description: "abstain voting for change",
-					Bits:        0x0000,
-					IsAbstain:   true,
-					IsNo:        false,
-				}, {
-					Id:          "no",
-					Description: "keep the existing algorithm",
-					Bits:        0x0002, // Bit 1
-					IsAbstain:   false,
-					IsNo:        true,
-				}, {
-					Id:          "yes",
-					Description: "change to the new algorithm",
 					Bits:        0x0004, // Bit 2
 					IsAbstain:   false,
 					IsNo:        false,

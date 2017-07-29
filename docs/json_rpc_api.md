@@ -226,7 +226,7 @@ the method name for further details such as parameter and return information.
 |Method|decodescript|
 |Parameters|1. script (string, required) - hex-encoded script|
 |Description|Returns a JSON object with information about the provided hex-encoded script.|
-|Returns|`{ (json object)`<br />&nbsp;&nbsp;`"asm": "asm",  (string) disassembly of the script`<br />&nbsp;&nbsp;`"reqSigs": n,  (numeric) the number of required signatures`<br />&nbsp;&nbsp;`"type": "scripttype",  (string) the type of the script (e.g. 'pubkeyhash')`<br />&nbsp;&nbsp;`"addresses": [ (json array of string) the abcd addresses associated with this script`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"decredaddress",  (string) the abcd address`<br />&nbsp;&nbsp;&nbsp;&nbsp;`...`<br />&nbsp;&nbsp;`]`<br />&nbsp;&nbsp;`"p2sh": "scripthash",  (string) the script hash for use in pay-to-script-hash transactions`<br />`}`|
+|Returns|`{ (json object)`<br />&nbsp;&nbsp;`"asm": "asm",  (string) disassembly of the script`<br />&nbsp;&nbsp;`"reqSigs": n,  (numeric) the number of required signatures`<br />&nbsp;&nbsp;`"type": "scripttype",  (string) the type of the script (e.g. 'pubkeyhash')`<br />&nbsp;&nbsp;`"addresses": [ (json array of string) the abcd addresses associated with this script`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"aeroaddress",  (string) the abcd address`<br />&nbsp;&nbsp;&nbsp;&nbsp;`...`<br />&nbsp;&nbsp;`]`<br />&nbsp;&nbsp;`"p2sh": "scripthash",  (string) the script hash for use in pay-to-script-hash transactions`<br />`}`|
 |Example Return|`{`<br />&nbsp;&nbsp;`"asm": "OP_DUP OP_HASH160 b0a4d8a91981106e4ed85165a66748b19f7b7ad4 OP_EQUALVERIFY OP_CHECKSIG",`<br />&nbsp;&nbsp;`"reqSigs": 1,`<br />&nbsp;&nbsp;`"type": "pubkeyhash",`<br />&nbsp;&nbsp;`"addresses": [`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"1H71QVBpzuLTNUh5pewaH3UTLTo2vWgcRJ"`<br />&nbsp;&nbsp;`]`<br />&nbsp;&nbsp;`"p2sh": "359b84ff799f48231990ff0298206f54117b08b6"`<br />`}`|
 [Return to Overview](#MethodOverview)<br />
 
@@ -490,7 +490,7 @@ Example Return|`{`<br />&nbsp;&nbsp;`"bytes": 310768,`<br />&nbsp;&nbsp;`"size":
 |Description|Returns an array of hashes for all of the transactions currently in the memory pool.<br />The `verbose` flag specifies that each transaction is returned as a JSON object.|
 |Notes|<font color="orange">Since abcd does not perform any mining, the priority related fields `startingpriority` and `currentpriority` that are available when the `verbose` flag is set are always 0.</font>|
 |Returns (verbose=false)|`[ (json array of string)`<br />&nbsp;&nbsp;`"transactionhash", (string) hash of the transaction`<br />&nbsp;&nbsp;`...`<br />`]`|
-|Returns (verbose=true)|`{ (json object)`<br />&nbsp;&nbsp;`"transactionhash": { (json object)`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"size": n, (numeric) transaction size in bytes`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"fee" : n, (numeric) transaction fee in decreds`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"time": n, (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"height": n, (numeric) block height when transaction entered the pool`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"startingpriority": n, (numeric) priority when transaction entered the pool`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"currentpriority": n, (numeric) current priority`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"depends": [ (json array) unconfirmed transactions used as inputs for this transaction`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`"transactionhash", (string) hash of the parent transaction`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`...`<br />&nbsp;&nbsp;&nbsp;&nbsp;`]`<br />&nbsp;&nbsp;`}, ...`<br />`}`|
+|Returns (verbose=true)|`{ (json object)`<br />&nbsp;&nbsp;`"transactionhash": { (json object)`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"size": n, (numeric) transaction size in bytes`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"fee" : n, (numeric) transaction fee in aero`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"time": n, (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"height": n, (numeric) block height when transaction entered the pool`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"startingpriority": n, (numeric) priority when transaction entered the pool`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"currentpriority": n, (numeric) current priority`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"depends": [ (json array) unconfirmed transactions used as inputs for this transaction`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`"transactionhash", (string) hash of the parent transaction`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`...`<br />&nbsp;&nbsp;&nbsp;&nbsp;`]`<br />&nbsp;&nbsp;`}, ...`<br />`}`|
 |Example Return (verbose=false)|`[`<br />&nbsp;&nbsp;`"3480058a397b6ffcc60f7e3345a61370fded1ca6bef4b58156ed17987f20d4e7",`<br />&nbsp;&nbsp;`"cbfe7c056a358c3a1dbced5a22b06d74b8650055d5195c1c2469e6b63a41514a"`<br />`]`|
 |Example Return (verbose=true)|`{`<br />&nbsp;&nbsp;`"1697a19cede08694278f19584e8dcc87945f40c6b59a942dd8906f133ad3f9cc": {`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"size": 226,`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"fee" : 0.0001,`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"time": 1387992789,`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"height": 276836,`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"startingpriority": 0,`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"currentpriority": 0,`<br />&nbsp;&nbsp;&nbsp;&nbsp;`"depends": [`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`"aa96f672fcc5a1ec6a08a94aa46d6b789799c87bd6542967da25a96b2dee0afb",`<br />&nbsp;&nbsp;&nbsp;&nbsp;`]`<br />`}`|
 [Return to Overview](#MethodOverview)<br />
@@ -550,7 +550,7 @@ Example Return|`{`<br />&nbsp;&nbsp;`"bytes": 310768,`<br />&nbsp;&nbsp;`"size":
 |Method|validateaddress|
 |Parameters|1. address (string, required) - abcd address|
 |Description|Verify an address is valid.|
-|Returns|`{ (json object)`<br />&nbsp;&nbsp;`"isvalid": true or false,  (bool) whether or not the address is valid.`<br />&nbsp;&nbsp;`"address": "decredaddress", (string) the abcd address validated.`<br />}|
+|Returns|`{ (json object)`<br />&nbsp;&nbsp;`"isvalid": true or false,  (bool) whether or not the address is valid.`<br />&nbsp;&nbsp;`"address": "aeroaddress", (string) the abcd address validated.`<br />}|
 [Return to Overview](#MethodOverview)<br />
 
 ***
@@ -573,7 +573,7 @@ Example Return|`{`<br />&nbsp;&nbsp;`"bytes": 310768,`<br />&nbsp;&nbsp;`"size":
 <a name="ExtMethodOverview" />
 **6.1 Method Overview**<br />
 
-The following is an overview of the RPC methods which are implemented by abcd, but not the original decredd client. Click the method name for further details such as parameter and return information.
+The following is an overview of the RPC methods which are implemented by abcd, but not the original aero client. Click the method name for further details such as parameter and return information.
 
 |#|Method|Safe for limited user?|Description|
 |---|------|----------|-----------|
@@ -733,7 +733,7 @@ user.  Click the method name for further details such as parameter and return in
 |---|---|
 |Method|notifyreceived|
 |Notifications|[recvtx](#recvtx) and [redeemingtx](#redeemingtx)|
-|Parameters|1. Addresses (JSON array, required)<br />&nbsp;`[ (json array of strings)`<br />&nbsp;&nbsp;`"decredaddress", (string) the abcd address`<br />&nbsp;&nbsp;`...`<br />&nbsp;`]`|
+|Parameters|1. Addresses (JSON array, required)<br />&nbsp;`[ (json array of strings)`<br />&nbsp;&nbsp;`"aeroaddress", (string) the abcd address`<br />&nbsp;&nbsp;`...`<br />&nbsp;`]`|
 |Description|Send a recvtx notification when a transaction added to mempool or appears in a newly-attached block contains a txout pkScript sending to any of the passed addresses.  Matching outpoints are automatically registered for redeemingtx notifications.|
 |Returns|Nothing|
 [Return to Overview](#WSExtMethodOverview)<br />
@@ -746,7 +746,7 @@ user.  Click the method name for further details such as parameter and return in
 |---|---|
 |Method|stopnotifyreceived|
 |Notifications|None|
-|Parameters|1. Addresses (JSON array, required)<br />&nbsp;`[ (json array of strings)`<br />&nbsp;&nbsp;`"decredaddress", (string) the abcd address`<br />&nbsp;&nbsp;`...`<br />&nbsp;`]`|
+|Parameters|1. Addresses (JSON array, required)<br />&nbsp;`[ (json array of strings)`<br />&nbsp;&nbsp;`"aeroaddress", (string) the abcd address`<br />&nbsp;&nbsp;`...`<br />&nbsp;`]`|
 |Description|Cancel registered receive notifications for each passed address.|
 |Returns|Nothing|
 [Return to Overview](#WSExtMethodOverview)<br />
@@ -785,7 +785,7 @@ user.  Click the method name for further details such as parameter and return in
 |---|---|
 |Method|rescan|
 |Notifications|[recvtx](#recvtx), [redeemingtx](#redeemingtx), [rescanprogress](#rescanprogress), and [rescanfinished](#rescanfinished)|
-|Parameters|1. BeginBlock (string, required) block hash to begin rescanning from<br />2. Addresses (JSON array, required)<br />&nbsp;`[ (json array of strings)`<br />&nbsp;&nbsp;`"decredaddress", (string) the abcd address`<br />&nbsp;&nbsp;`...` <br />&nbsp;`]`<br />3. Outpoints (JSON array, required)<br />&nbsp;`[ (JSON array)`<br />&nbsp;&nbsp;`{ (JSON object)`<br />&nbsp;&nbsp;&nbsp;`"hash":"data", (string) the hex-encoded bytes of the outpoint hash`<br />&nbsp;&nbsp;&nbsp;`"index":n (numeric) the txout index of the outpoint`<br />&nbsp;&nbsp;`},`<br />&nbsp;&nbsp;`...`<br />&nbsp;`]`<br />4. EndBlock (string, optional) hash of final block to rescan|
+|Parameters|1. BeginBlock (string, required) block hash to begin rescanning from<br />2. Addresses (JSON array, required)<br />&nbsp;`[ (json array of strings)`<br />&nbsp;&nbsp;`"aeroaddress", (string) the abcd address`<br />&nbsp;&nbsp;`...` <br />&nbsp;`]`<br />3. Outpoints (JSON array, required)<br />&nbsp;`[ (JSON array)`<br />&nbsp;&nbsp;`{ (JSON object)`<br />&nbsp;&nbsp;&nbsp;`"hash":"data", (string) the hex-encoded bytes of the outpoint hash`<br />&nbsp;&nbsp;&nbsp;`"index":n (numeric) the txout index of the outpoint`<br />&nbsp;&nbsp;`},`<br />&nbsp;&nbsp;`...`<br />&nbsp;`]`<br />4. EndBlock (string, optional) hash of final block to rescan|
 |Description|Rescan block chain for transactions to addresses, starting at block BeginBlock and ending at EndBlock.  The current known UTXO set for all passed addresses at height BeginBlock should included in the Outpoints argument.  If EndBlock is omitted, the rescan continues through the best block in the main chain.  Additionally, if no EndBlock is provided, the client is automatically registered for transaction notifications for all rescanned addresses and the final UTXO set.  Rescan results are sent as recvtx and redeemingtx notifications.  This call returns once the rescan completes.|
 |Returns|Nothing|
 [Return to Overview](#WSExtMethodOverview)<br />
