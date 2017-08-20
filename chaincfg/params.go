@@ -478,7 +478,7 @@ var MainNetParams = Params{
 	RetargetAdjustmentFactor: 4,//25% less, 400% more
 
 	// Subsidy parameters.
-	BaseSubsidy:              209909743215, // 13b
+	BaseSubsidy:              209909743215, // 1.3b
 	MulSubsidy:               100,
 	DivSubsidy:               101,
 	SubsidyReductionInterval: 6144,
@@ -488,7 +488,6 @@ var MainNetParams = Params{
 
 	// Checkpoints ordered from oldest to newest.
 	Checkpoints: []Checkpoint{
-		//{440, newHashFromStr("0000000000002203eb2c95ee96906730bb56b2985e174518f90eb4db29232d93")},
 	},
 
 	// The miner confirmation window is defined as:
